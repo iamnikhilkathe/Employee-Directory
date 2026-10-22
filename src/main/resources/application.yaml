@@ -1,0 +1,41 @@
+server:
+  port: ${SERVER_PORT:8086}
+
+
+spring:
+  application:
+    name: employeedirectory
+
+  # Database
+  datasource:
+    url: jdbc:h2:mem:employeedirectory_h2_db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+springdoc:
+  swagger-ui:
+    url: /openapi.yaml
+    path: /swagger-ui.html
+
+
+# AppConfig
+app:
+  name: ${APP_NAME:employee-directory}
+  version: ${APP_VERSION:1.0}
+
+directory:
+  max-skills-per-employee: ${MAX_SKILLS_PER_EMPLOYEE:10}
+
+pagination:
+  default-page-size: ${PAGINATION_DEFAULT_PAGE_SIZE:10}
